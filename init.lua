@@ -90,10 +90,7 @@ end
 -- Is a node lightable and a liquid capable of flooding some light sources
 local function is_lightable_liquid(pos)
 	local node = core.get_node_or_nil(pos)
-	if not node then
-		return
-	end
-	return lightable_liquids[node.name]
+	return node and lightable_liquids[node.name]
 end
 
 -- Check if an entity instance still exists in the world
@@ -472,7 +469,7 @@ end
 -- Gets the closest position to pos that's a lightable node
 function wielded_light.get_light_position(pos)
 	local around_vector = {
-		{ x = 0, y = 0, z = 0 },
+		{ x = 0, y = 0, z = 0 }, -- Center too!
 		{ x = 0, y = 1, z = 0 },
 		{ x = 0, y = -1, z = 0 },
 		{ x = 1, y = 0, z = 0 },
@@ -629,12 +626,12 @@ local function log_deprecated()
 	core.log("warning", 'Call to deprecated function "' .. apifunc .. '" ' .. k)
 end
 
-function wielded_light.update_light()
+function wielded_light.update_light(pos, light_level)
 	log_deprecated()
 	-- no-op
 end
 
-function wielded_light.update_light_by_item()
+function wielded_light.update_light_by_item(stack, pos)
 	log_deprecated()
 	-- no-op
 end

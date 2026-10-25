@@ -15,6 +15,7 @@ SPDX-License-Identifier = "GPL-3.0-only"
 [[annotations]]
 path = [
     ".luacheckrc",
+    "flint.toml",
     ".github/**",
     ".gitattributes",
     ".cdb.json",

@@ -1,3 +1,5 @@
+unused_args = false
+
 globals = {
 	"wielded_light",
 }
